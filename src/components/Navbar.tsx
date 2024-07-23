@@ -24,12 +24,12 @@ const Navbar = () => {
                   >Movies </NavLink
                 >
                 <NavLink
-                  to="/movies"
+                  to="shows"
                   className={linkClass}
                   >TV-Shows</NavLink
                 >
                 <NavLink
-                  to="/tv-shows"
+                  to="/entertain"
                   className={linkClass}
                   >Entertain</NavLink
                 >
