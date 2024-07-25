@@ -1,7 +1,10 @@
 
 const EntertainPage = () => {
   return (
-    <div>EntertainPage</div>
+    <div className="bg-slate-800 flex justify-center">
+      <h1 className="text-white text-lg">Coming Soon...</h1>
+      <div className="h-screen"></div>
+    </div>
   )
 }
 

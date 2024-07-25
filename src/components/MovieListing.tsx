@@ -5,16 +5,16 @@ const MovieListing = ({movie}) => {
   return (
     <>
     <div className='bg-slate-800 shadow-2xl shadow-gray-900'>
-      <Link to='/'>
+      <Link to={`/:${movie.id}`}>
         {
             movie.poster_path
             ? <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            className=""
+            className="rounded-md"
             alt={movie.title}
           />
              : <img
-            src="images/no-image.jpg"
+            src="../public/No_image.jpg"
             className="card-img-top"
             alt={movie.title}
           />
