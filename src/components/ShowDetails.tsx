@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { FaStar  } from "react-icons/fa";
 
 
-const ShowDetails = ({show}) => {
+const ShowDetails = ({show}:{[key:string]:any}) => {
 
    const bgOverlay = `https://image.tmdb.org/t/p/original/${show.backdrop_path}`
 
@@ -44,7 +44,7 @@ const ShowDetails = ({show}) => {
                </p>
                <h5 className="text-rose-300 text-lg">Genres: </h5>
                <ul className="ml-10">
-                  {show.genres.map((genre) => <li key={genre.name}>{genre.name}</li>)}
+                  {show.genres.map((genre:{[key:string]:any}) => <li key={genre.name}>{genre.name}</li>)}
                </ul>
                <Link to={show.homepage} target="_blank" className="inline-block mt-10 px-5 py-3 bg-slate-900 text-white rounded-lg cursor-pointer transition-all hover:text-rose-300 border border-slate-900 hover:border-rose-300 font-semibold "> Visit Show Homepage</Link>
             </div>
@@ -61,7 +61,7 @@ const ShowDetails = ({show}) => {
             </ul>
             <h4 className="text-lg">Production Companies:</h4>
             <div className="list-group">
-               {show.production_companies.map((company) => <span>{company.name}. </span>)}
+               {show.production_companies.map((company:{[key:string]:any}) => <span>{company.name}. </span>)}
             </div>
          </div>
       </div>

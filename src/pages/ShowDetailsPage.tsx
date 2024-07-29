@@ -15,7 +15,7 @@ const ShowDetailsPage = () => {
  const [loading, setLoading] = useState<boolean>(true)
  const [show, setShow] = useState<Data[]>([]);
  const { id } = useParams();
- const showID = id.slice(1)
+ const showID = id?.slice(1)
 
  useEffect(() => {
     const API_KEY = process.env.API_KEY;

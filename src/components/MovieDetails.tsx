@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { FaStar  } from "react-icons/fa";
 
 
-const MovieDetails = ({movie}) => {
+const MovieDetails = ({movie}:{[key:string]:any}) => {
    //add commas
    function addCommasToNumber(number:number):string {
       return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -49,7 +49,7 @@ const MovieDetails = ({movie}) => {
                </p>
                <h5 className="text-rose-300 text-lg">Genres: </h5>
                <ul className="ml-10">
-                  {movie.genres.map((genre) => <li key={genre.name}>{genre.name}</li>)}
+                  {movie.genres.map((genre:any) => <li key={genre.name}>{genre.name}</li>)}
                </ul>
                <Link to={movie.homepage} target="_blank" className="inline-block mt-10 px-5 py-3 bg-slate-900 text-white rounded-lg cursor-pointer transition-all hover:text-rose-300 border border-slate-900 hover:border-rose-300 font-semibold "> Visit Movie Homepage</Link>
             </div>
@@ -65,7 +65,7 @@ const MovieDetails = ({movie}) => {
             </ul>
             <h4 className="text-lg">Production Companies:</h4>
             <div className="list-group">
-               {movie.production_companies.map((company) => <span>{company.name}. </span>)}
+               {movie.production_companies.map((company:any) => <span>{company.name}. </span>)}
             </div>
          </div>
       </div>

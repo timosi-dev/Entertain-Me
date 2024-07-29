@@ -23,7 +23,7 @@ const MoviesPage = () => {
             <div className="text-white flex gap-2">
               <input type="radio" id="movie" name="type" value="movie" checked readOnly/>
               <label htmlFor="movie">Movies</label>
-              <input type="radio" id="tv" name="type" value="tv" className="ml-6"/>
+              <input type="radio" id="tv" name="type" value="tv" className="ml-6" readOnly/>
               <label htmlFor="tv">TV Shows</label>
             </div>
             <div className="flex justify-between items-center mt-2">

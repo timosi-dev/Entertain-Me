@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
-const MovieListing = ({movie}) => {
+
+const MovieListing = ({movie}:{[key:string]:any}) => {
 
   return (
     <>

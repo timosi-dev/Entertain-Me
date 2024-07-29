@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const SearchListing = ({item, type}) => {
+const SearchListing = ({item, type}:{[key:string]:any}) => {
   return (
    <>
    <div className='bg-slate-800 shadow-2xl shadow-gray-900'>

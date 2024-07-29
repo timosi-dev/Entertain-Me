@@ -15,7 +15,7 @@ const MovieDetailsPage = () => {
  const [loading, setLoading] = useState<boolean>(true)
  const [movie, setMovie] = useState<Data[]>([]);
  const { id } = useParams();
- const movieID = id.slice(1)
+ const movieID = id?.slice(1)
 
  useEffect(() => {
     const API_KEY = process.env.API_KEY;
