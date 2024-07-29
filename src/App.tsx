@@ -5,9 +5,12 @@ import ShowsPage from './pages/ShowsPage'
 import EntertainPage from './pages/EntertainPage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import ShowDetailsPage from './pages/ShowDetailsPage'
+import SearchPage from './pages/SearchPage'
 
 
 function App() {
+  
+  
   
   //  Fetch data from TMDB API
   const fetchAPIData = async (endpoint: string): Promise<T> => {
@@ -32,6 +35,7 @@ function App() {
       <Route path ='/shows' element = { <ShowsPage /> } />
       <Route path ='/shows/:id' element = { <ShowDetailsPage /> } />
       <Route path ='/entertain' element = { <EntertainPage /> } />
+      <Route path ='/search' element = { <SearchPage /> } />
     </Route>
   )
   )

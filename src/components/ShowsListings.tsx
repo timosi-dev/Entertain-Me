@@ -8,7 +8,7 @@ const ShowsListings = () => {
       poster_path: string;
       title: string;
       release_date: string;
-      last_air_date : string;
+      last_air_date : string; 
       first_air_date : string;
    }
 
