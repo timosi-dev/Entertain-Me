@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, Autoplay, A11y } from 'swiper/modules';
+import { Autoplay, A11y } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+
 
 import { Link } from 'react-router-dom';
 import Spinner from './Spinner';
