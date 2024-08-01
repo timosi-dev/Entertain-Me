@@ -15,7 +15,7 @@ const MovieListing = ({movie}:{[key:string]:any}) => {
             alt={movie.title}
           />
              : <img
-            src="../public/No_image.jpg"
+            src="No_image.jpg"
             className="card-img-top"
             alt={movie.title}
           />

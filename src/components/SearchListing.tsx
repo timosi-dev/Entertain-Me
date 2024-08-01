@@ -13,7 +13,7 @@ const SearchListing = ({item, type}:{[key:string]:any}) => {
            alt={ type==='movie' ? item.title : item.name}
          />
             : <img
-           src="../public/No_image.jpg"
+           src="No_image.jpg"
            className="card-img-top"
            alt={type==='movie' ? item.title : item.name}
          />

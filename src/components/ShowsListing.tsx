@@ -13,7 +13,7 @@ const ShowsListing = ({show}:{[key:string]:any}) => {
             alt={show.name}
           />
              : <img
-            src="../public/No_image.jpg"
+            src="/No_image.jpg"
             className="card-img-top"
             alt={show.name}
           />
