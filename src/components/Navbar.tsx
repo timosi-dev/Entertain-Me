@@ -31,7 +31,7 @@ const Navbar = () => {
               <div className="flex space-x-2">
                 <NavLink
                   to="/"
-                  className={linkClass}
+                  className={linkClass} 
                   >MOVIES </NavLink
                 >
                 <NavLink
@@ -57,20 +57,20 @@ const Navbar = () => {
 
             {/* <!-- display mobile menu  --> */}
             <div id="menu" className="hidden md:hidden absolute p-6 rounded-md right-6 top-16 x-100 bg-slate-900 w-1/2 opacity-90 z-10">
-              <div className="flex flex-col items-end justify-center w-full space-y-6 font-bold text-white rounded-sm">
+              <div className="flex flex-col items-center justify-center w-full space-y-6 font-bold text-white rounded-sm">
               <NavLink
                   to="/"
-                  className={linkClass}
+                  className={linkClass} onClick={() => toggleMenu() }
                   >MOVIES </NavLink
                 >
                 <NavLink
                   to="/shows"
-                  className={linkClass}
+                  className={linkClass}  onClick={() => toggleMenu() }
                   >TV-SHOWS</NavLink
                 >
                 <NavLink
                   to="/entertain"
-                  className={linkClass}
+                  className={linkClass}  onClick={() => toggleMenu() }
                   >ENTERTAIN</NavLink
                 >
               </div>
