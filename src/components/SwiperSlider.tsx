@@ -50,9 +50,9 @@ const SwiperSlider = () => {
                spaceBetween={30}
                freeMode={true}
                loop={true}
-               slidesPerView={1}
+               slidesPerView={2}
                autoplay = {{delay: 2000, disableOnInteraction:false, pauseOnMouseEnter:true}}
-               breakpoints= {{500:{slidesPerView:1}, 
+               breakpoints= {{500:{slidesPerView:2}, 
                               600:{slidesPerView:2},
                               900:{slidesPerView:3},
                               1200:{slidesPerView:4}

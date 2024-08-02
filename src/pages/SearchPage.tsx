@@ -23,7 +23,7 @@ const SearchPage = () => {
                 name="search-term"
                 id="search-term"
                 placeholder="Enter search term"
-                className="sm:w-96 w-72 h-12  rounded-md border border-rose-200 bg-slate-800  focus:outline-none pl-4 text-white placeholder:text-sm"
+                className="sm:w-96 w-56 h-12  rounded-md border border-rose-200 bg-slate-800  focus:outline-none pl-4 text-white placeholder:text-sm"
               />
               <button className=" rounded-lg bg-rose-200 h-12 w-24 flex justify-center items-center ml-6 hover:bg-rose-300" type="submit">
                 <FaSearch className=""/>
@@ -39,7 +39,7 @@ const SearchPage = () => {
           {searchTerm ?
           <> 
           <h2 className="text-center pt-6 text-2xl uppercase text-white">Search Results</h2>
-            <div id="popular-movies" className="grid grid-cols-1 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div id="popular-movies" className="grid grid-cols-2 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <SearchListings />              
             </div>
             </>  
