@@ -4,6 +4,7 @@ website uses connection to TMDB API to get popular movies and TV-shows and displ
 It has a showcase for now playinng movies and ability to search both movies and tv-shows.
 
 Used React + TypeScript + Vite + Tailwind
+"npm run preview"
 
 To be implemented: 
 1. Entertain-me page, that will have filtering options and will give you 3 random movies according to what user chooses.
