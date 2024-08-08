@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+# Entertain ME
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+website uses connection to TMDB API to get popular movies and TV-shows and displays them.
+It has a showcase for now playinng movies and ability to search both movies and tv-shows.
 
-Currently, two official plugins are available:
+Used React + TypeScript + Vite + Tailwind
+"npm run preview"
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+To be implemented: 
+1. Entertain-me page, that will have filtering options and will give you 3 random movies according to what user chooses.
+  it would be only 3 or 1 random movie to reduce the constant scrolling that choosing something to watch usually needs.
+2. Implement streaming platforms in the filtering, so that user can specify which platform they have and filter with it.
+   This should also have country filter. because streaming platforms content can be different in different countries.
+3. Create user authentication and user profiles
+4. Each user can create collections or watchlists for each movies they want to watch for. and they would be able to share the list with their friends.
+   Or have shared lists where friends can contribute.
+   They can also set alarms and get notifications when the new season or movie comes out that they put in the specific collection.
