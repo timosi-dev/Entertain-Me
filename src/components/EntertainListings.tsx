@@ -19,7 +19,6 @@ const EntertainListings = () => {
 
    const [loading, setLoading] = useState<boolean>(true)
    const [results, setResults] = useState<string[]>([]);
-   const [randomArr, setRandomArr] = useState<string[]>([]);
 
  
    let query ='';
@@ -28,10 +27,10 @@ const EntertainListings = () => {
       query = query + `&primary_release_date.gte=${minYear}-01-01&primary_release_date.lte=${maxYear}-12-31`;
    }
 
-   function randomNumber(total:number):string[] {
+   function randomNumber(total:number):number[] {
       let arr =[];
       while (arr.length < 3) {
-         const random = (Math.floor(Math.random() * total) + 1).toString();
+         const random = (Math.floor(Math.random() * total) + 1);
          if (arr.indexOf(random) === -1) arr.push(random);
       }
 
@@ -48,39 +47,38 @@ const EntertainListings = () => {
          try {
             const response = await fetch (`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US${query}`);
             const data = await response.json();
-            // const randomArray = randomNumber(data.total_results);
-            // setRandomArr(randomArray);
-            // const results = data.results.filter((element) => randomArray.includes(element.id));
-            setResults(data.results);
+            console.log(data)
+            const total_results = data.total_results >= 10000 ? 10000 : data.total_results;
+            const randomArray = randomNumber(total_results);
+            // console.log(randomArray)
+            // const randomArray = [12300, 2002, 53];
+            const page = randomArray.map(e => Math.ceil(e/20));
+            const IdOnPage = randomArray.map(e => (e%20-1) === -1 ? 19 : (e%20-1));
+            let results = [];
+
+            //I need to catch when there is 0 items
+            for (let i = 0; i<3; i++){
+               if (page[i] === 0) {
+                  continue;
+               }
+               const response = await fetch (`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US${query}&page=${page[i]}`);
+               const data = await response.json();
+               const output = data.results[IdOnPage[i]];
+               console.log(output)
+               results.push(output);
+               console.log(results);
+            }
+            setResults(results);
+
          } catch(error) {
             console.log(error)
          }
          finally {
-              setLoading(false)
+              setLoading(false);
             }
          }
-         fetchResults();
 
-         
-   //       const fetchResultsFinal = async () => {
-   //          try {
-   //             let results = [];
-   //             for (let i = 1; i<=3; i++){
-   //                console.log(randomArr);
-                  
-   //             }
-   //             const response = await fetch (`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US${query}&page=${1}`);
-   //             const data = await response.json();
-   //             // const results = data.results.filter((element) => randomArray.includes(element.id));
-   //             // results.push(data)
-   //          } catch(error) {
-   //             console.log(error)
-   //          }
-   //          finally {
-   //               setLoading(false)
-   //             }
-   //          }
-   //       fetchResultsFinal();
+         fetchResults();
          
    },[]);
 
