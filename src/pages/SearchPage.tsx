@@ -38,10 +38,9 @@ const SearchPage = () => {
         <div className ='bg-slate-800 '> 
           {searchTerm ?
           <> 
-          <h2 className="text-center pt-6 text-2xl uppercase text-white">Search Results</h2>
-            <div id="popular-movies" className="grid grid-cols-2 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          
               <SearchListings />              
-            </div>
+            
             </>  
             :
             <>

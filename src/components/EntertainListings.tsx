@@ -9,6 +9,8 @@ const EntertainListings = () => {
    const searchType = urlParams.get('type');
    const minYear = urlParams.get('minYear');
    const maxYear = urlParams.get('maxYear');
+   const minRating = urlParams.get('minRating');
+   const maxRating = urlParams.get('maxRating');
 
    interface Data {
       id: number;
@@ -42,10 +44,17 @@ const EntertainListings = () => {
          if (urlParams.get('year')) {
             query = query + `&primary_release_date.gte=${minYear}-01-01&primary_release_date.lte=${maxYear}-12-31`;
          }
+         if (urlParams.get('rating')) {
+            query = query + `&vote_average.gte=${minRating}&vote_average.lte=${maxRating}`;
+         }
+
       } else {
          endpoint = 'discover/tv'
          if (urlParams.get('year')) {
             query = query + `&first_air_date.gte=${minYear}-01-01&first_air_date.lte=${maxYear}-12-31`;
+         }
+         if (urlParams.get('rating')) {
+            query = query + `&vote_average.gte=${minRating}&vote_average.lte=${maxRating}`;
          }
       }
 
@@ -70,9 +79,7 @@ const EntertainListings = () => {
                const response = await fetch (`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US${query}&page=${page[i]}`);
                const data = await response.json();
                const output = data.results[IdOnPage[i]];
-               console.log(output)
                results.push(output);
-               console.log(results);
             }
             setResults(results);
 
@@ -97,7 +104,8 @@ const EntertainListings = () => {
       ?
       (loading ? (<Spinner className='grid' loading={loading}/>) : (
          <>
-            <div id="popular-movies" className="grid grid-cols-2 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3">
+            <h2 className="text-center pt-10 text-2xl font-demibold text-white uppercase">Results:</h2>
+            <div id="popular-movies" className="grid grid-cols-1 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3">
                { results.map((movie) => (
                         <MovieListing movie ={movie} key ={movie.id}/>
                      ))}
@@ -107,6 +115,7 @@ const EntertainListings = () => {
       :
       (loading ? (<Spinner loading={loading}/>) : (
          <>
+            <h2 className="text-center pt-10 text-2xl font-demibold text-white uppercase">Results:</h2>
             <div id="popular-movies" className="grid grid-cols-2 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3">
             { results.map((show) => (
                      <ShowsListing show ={show} key ={show.id}/>
