@@ -17,15 +17,9 @@ const EntertainListings = () => {
       release_date: string;
    }
 
-   const [loading, setLoading] = useState<boolean>(true)
-   const [results, setResults] = useState<string[]>([]);
 
- 
-   let query ='';
-   
-   if (urlParams.get('year')) {
-      query = query + `&primary_release_date.gte=${minYear}-01-01&primary_release_date.lte=${maxYear}-12-31`;
-   }
+   const [loading, setLoading] = useState<boolean>(true)
+   const [results, setResults] = useState<Data[]>([]);
 
    function randomNumber(total:number):number[] {
       let arr =[];
@@ -33,29 +27,41 @@ const EntertainListings = () => {
          const random = (Math.floor(Math.random() * total) + 1);
          if (arr.indexOf(random) === -1) arr.push(random);
       }
-
       return arr;
    }
-
 
    useEffect(() => {
       const API_KEY = process.env.API_KEY;
       const API_URL = process.env.API_URL;
-      const endpoint = 'discover/movie'
+      let endpoint = ''
+
+      //create query to filter thing out
+      let query ='';
+      if (searchType === 'movie') {
+         endpoint = 'discover/movie'
+         if (urlParams.get('year')) {
+            query = query + `&primary_release_date.gte=${minYear}-01-01&primary_release_date.lte=${maxYear}-12-31`;
+         }
+      } else {
+         endpoint = 'discover/tv'
+         if (urlParams.get('year')) {
+            query = query + `&first_air_date.gte=${minYear}-01-01&first_air_date.lte=${maxYear}-12-31`;
+         }
+      }
 
       const fetchResults = async () => {
          try {
             const response = await fetch (`${API_URL}${endpoint}?api_key=${API_KEY}&language=en-US${query}`);
             const data = await response.json();
-            console.log(data)
+
+            //creating random movies
             const total_results = data.total_results >= 10000 ? 10000 : data.total_results;
             const randomArray = randomNumber(total_results);
-            // console.log(randomArray)
-            // const randomArray = [12300, 2002, 53];
             const page = randomArray.map(e => Math.ceil(e/20));
             const IdOnPage = randomArray.map(e => (e%20-1) === -1 ? 19 : (e%20-1));
-            let results = [];
 
+
+            let results = [];
             //I need to catch when there is 0 items
             for (let i = 0; i<3; i++){
                if (page[i] === 0) {
@@ -89,19 +95,23 @@ const EntertainListings = () => {
     <>
       { searchType === 'movie'
       ?
-      (loading ? (<Spinner loading={loading}/>) : (
+      (loading ? (<Spinner className='grid' loading={loading}/>) : (
          <>
-           { results.map((movie) => (
-               <MovieListing movie ={movie} key ={movie.id}/>
-            ))}
+            <div id="popular-movies" className="grid grid-cols-2 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3">
+               { results.map((movie) => (
+                        <MovieListing movie ={movie} key ={movie.id}/>
+                     ))}
+            </div>
          </>
       ) )
       :
       (loading ? (<Spinner loading={loading}/>) : (
          <>
-           { results.map((show) => (
-               <ShowsListing show ={show} key ={show.id}/>
-            ))}
+            <div id="popular-movies" className="grid grid-cols-2 p-10 gap-10 sm:grid-cols-2 md:grid-cols-3">
+            { results.map((show) => (
+                     <ShowsListing show ={show} key ={show.id}/>
+                  ))}
+            </div>
          </>
       ) )
       }
