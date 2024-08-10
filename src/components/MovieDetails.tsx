@@ -13,15 +13,15 @@ const MovieDetails = ({movie}:{[key:string]:any}) => {
    console.log(bgOverlay)
 
   return (
-    <div className=" tracking-wide bg-slate-800 relative z-0">
+    <div className=" tracking-wide bg-slate-800 relative z-0" key={movie.id}>
       <div style={{backgroundImage: `url(${bgOverlay})`}}  className={`opacity-5 absolute w-full h-screen bg-cover bg-no-repeat top-0 left-0 z-10 bg-center`}></div>
       {/* <div className={`bg-[url('../public/No_image.jpg')] no-repeat cover h-screen w-full absolute top-0 left-0 z-10`}></div> */}
-      <div className="relative container p-10 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 z-40">
+      <div className="relative container p-10 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 z-40" key={movie.id}>
          <div className="pb-10">
             <Link className="inline-block px-5 py-3 bg-slate-900 text-white rounded-lg cursor-pointer transition-all hover:text-rose-300 border border-slate-900 hover:border-rose-300 font-semibold" to="/">
                Back To Movies</Link>
          </div>
-         <div className="flex md:flex-row flex-col justify-between items-center gap-16 text-white">
+         <div className="flex md:flex-row flex-col justify-between items-center gap-16 text-white" >
             <div className="flex-none w-96">
                {
                   movie.poster_path

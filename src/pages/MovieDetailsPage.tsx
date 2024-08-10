@@ -43,7 +43,7 @@ const MovieDetailsPage = () => {
     <>
     {loading ? (<Spinner loading={loading}/>) : (
         <>
-          <MovieDetails movie={movie}/>
+          <MovieDetails movie={movie} key={movieID}/>
         </>
       ) }
     </>

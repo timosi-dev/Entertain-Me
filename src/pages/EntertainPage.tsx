@@ -47,66 +47,70 @@ const EntertainPage = () => {
                 <p>
                   Genres:
                 </p>
+                {/* <div className="flex space-x-2 text-white justify-center text-lg">
+                  <input type="checkbox" id="genres" name="genres"/>
+                  <label htmlFor="genres">Genres</label>
+                </div> */}
                 <ul className="flex justify-left flex-wrap space-x-2">
                   <li className="flex space-x-1 ml-2">
-                    <input type="checkbox" id="action" name="action" value="Action" />
+                    <input type="checkbox" id="Action" name="action" value="Action" className="genre"/>
                     <label htmlFor="Action">Action</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="adventure" name="adventure" value="Adventure" />
-                    <label htmlFor="Action">Adventure</label>
+                    <input type="checkbox" id="Adventure" name="adventure" value="Adventure" className="genre"/>
+                    <label htmlFor="Adventure">Adventure</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="animation" name="animation" value="Animation" />
-                    <label htmlFor="Action">Animation</label>
+                    <input type="checkbox" id="Animation" name="animation" value="Animation" className="genre"/>
+                    <label htmlFor="Animation">Animation</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="comedy" name="comedy" value="Comedy" />
-                    <label htmlFor="Action">Comedy</label>
+                    <input type="checkbox" id="Comedy" name="comedy" value="Comedy" className="genre" />
+                    <label htmlFor="Comedy">Comedy</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="crime" name="crime" value="Crime" />
-                    <label htmlFor="Action">Crime</label>
+                    <input type="checkbox" id="Crime" name="crime" value="Crime" className="genre"/>
+                    <label htmlFor="Crime">Crime</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="drama" name="drama" value="Drama" />
-                    <label htmlFor="Action">Drama</label>
+                    <input type="checkbox" id="Drama" name="drama" value="Drama" className="genre"/>
+                    <label htmlFor="Drama">Drama</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="documentary" name="documentary" value="Documentary" />
-                    <label htmlFor="Action">Documentary</label>
+                    <input type="checkbox" id="Documentary" name="documentary" value="Documentary" className="genre"/>
+                    <label htmlFor="Documentary">Documentary</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="family" name="family" value="Family" />
-                    <label htmlFor="Action">Family</label>
+                    <input type="checkbox" id="Family" name="family" value="Family" className="genre"/>
+                    <label htmlFor="Family">Family</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="fantasy" name="fantasy" value="Fantasy" />
-                    <label htmlFor="Action">Fantasy</label>
+                    <input type="checkbox" id="Fantasy" name="fantasy" value="Fantasy" className="genre"/>
+                    <label htmlFor="Fantasy">Fantasy</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="horror" name="horror" value="Horror" />
-                    <label htmlFor="Action">Horror</label>
+                    <input type="checkbox" id="Horror" name="horror" value="Horror" className="genre"/>
+                    <label htmlFor="Horror">Horror</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="mystery" name="mystery" value="Mystery" />
-                    <label htmlFor="Action">Mystery</label>
+                    <input type="checkbox" id="Mystery" name="mystery" value="Mystery" className="genre"/>
+                    <label htmlFor="Mystery">Mystery</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="romance" name="romance" value="Romance" />
-                    <label htmlFor="Action">Romance</label>
+                    <input type="checkbox" id="Romance" name="romance" value="Romance" className="genre"/>
+                    <label htmlFor="Romance">Romance</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="science Fiction" name="science fiction" value="Science Fiction" />
-                    <label htmlFor="Action">Science Fiction</label>
+                    <input type="checkbox" id="ScienceFiction" name="scienceFiction" value="Science Fiction" className="genre"/>
+                    <label htmlFor="ScienceFiction">Science Fiction</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="thriller" name="thriller" value="Thriller" />
-                    <label htmlFor="Action">Thriller</label>
+                    <input type="checkbox" id="Thriller" name="thriller" value="Thriller" className="genre"/>
+                    <label htmlFor="Thriller">Thriller</label>
                   </li>
                   <li className="flex space-x-1">
-                    <input type="checkbox" id="western" name="western" value="Western" />
-                    <label htmlFor="Action">Western</label>
+                    <input type="checkbox" id="Western" name="western" value="Western" className="genre"/>
+                    <label htmlFor="Western">Western</label>
                   </li>
                 </ul>
             </fieldset>

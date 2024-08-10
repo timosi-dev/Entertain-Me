@@ -5,7 +5,7 @@ const MovieListing = ({movie}:{[key:string]:any}) => {
 
   return (
     <>
-    <div className='bg-slate-800 shadow-2xl shadow-gray-900'>
+    <div className='bg-slate-800 shadow-2xl shadow-gray-900' key={movie.id}>
       <Link to={`/:${movie.id}`}>
         {
             movie.poster_path
