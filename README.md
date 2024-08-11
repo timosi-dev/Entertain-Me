@@ -7,7 +7,7 @@ Used React + TypeScript + Vite + Tailwind
 "npm run preview"
 
 To be implemented: 
-1. Persist filter and search data into session Storage.
+1. Persist filter and search data into session Storage also for checkboxes.
 2. Specify vote number, as it affects ratings.
 2. Implement streaming platforms in the filtering, so that user can specify which platform they have and filter with it.
    This should also have country filter. because streaming platforms content can be different in different countries.

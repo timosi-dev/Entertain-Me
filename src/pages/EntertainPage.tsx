@@ -1,9 +1,43 @@
+// import { useEffect } from "react";
 import EntertainListings from "../components/EntertainListings"
+// import { useSessionStorageBoolean } from 'react-use-window-sessionstorage';
 
 const EntertainPage = () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const type = urlParams.get('type');
+
+  
+  // const [yearChecked, setYearChecked] = useSessionStorageBoolean('yearChecked', false)
+
+  const minYear = urlParams.get('minYear') || '1888';
+  const maxYear = urlParams.get('maxYear') || '2050';
+  const minRating = urlParams.get('minRating') || '0';
+  const maxRating = urlParams.get('maxRating') || '10';
+
+ 
+  sessionStorage.setItem("minRating", minRating);
+  sessionStorage.setItem("maxRating", maxRating);
+  sessionStorage.setItem("minYear", minYear);
+  sessionStorage.setItem("maxYear", maxYear);
+
+
+  // useEffect(() => {
+
+  //    const persistData = () => {
+  //     console.log(yearChecked)
+  //   if (urlParams.get('year')) {
+  //     setYearChecked(true);
+  //   } else {
+  //     setYearChecked(false);
+  //   }
+  //   }
+  //   persistData();
+    
+  // },[]);
+
+
+
 
   return (
     <>
@@ -23,24 +57,26 @@ const EntertainPage = () => {
               {/* specifying year range  */}
               <div className="flex flex-col justify-center items-center space-y-4 p-6 border border-rose-300 rounded-md border-opacity-40">
                 <div className="flex space-x-2 text-white">
-                  <input type="checkbox" id="year" name="year"/>
+                  <input type="checkbox" id="year" name="year" defaultChecked={true}/>
                   <label htmlFor="year">Year Range</label>
                 </div>
                 <div className="flex space-x-6">
-                  <input className="pl-1 py-1" type="number" id="minYear" name="minYear" min="1888" max="2050" placeholder="2000" defaultValue={1888}/>
-                  <input className="pl-1 py-1" type="number" id="maxYear" name="maxYear" min="1888" max="2050" placeholder="2025" defaultValue={2030}/>
+                  <input className="pl-1 py-1" type="number" id="minYear" name="minYear" min="1888" max="2050" placeholder="2000" defaultValue={minYear}/>
+                  <input className="pl-1 py-1" type="number" id="maxYear" name="maxYear" min="1888" max="2050" placeholder="2025" defaultValue={maxYear}/>
                 </div>
               </div>
               {/* specifying rating range  */}
               <div className="flex flex-col justify-center items-center space-y-4 p-6 border border-rose-300 rounded-md border-opacity-40">
-                <div className="flex space-x-2 text-white">
-                  <input type="checkbox" id="rating" name="rating"/>
+                <div className="flex space-x-2 text-white"> 
+                  <input type="checkbox" id="rating" name="rating" defaultChecked={true}/>
                   <label htmlFor="rating">Rating Range</label>
                 </div>
                 <div className="flex space-x-6">
-                  <input className="pl-1 py-1" type="number" id="minRating" name="minRating" min="0" max="10" placeholder="0" defaultValue={0}/>
-                  <input className="pl-1 py-1" type="number" id="maxRating" name="maxRating" min="0" max="10" placeholder="10" defaultValue={10}/>
+                  <input className="pl-1 py-1" type="number" id="minRating" name="minRating" min="0" max="10" defaultValue={minRating} />
+                  <input className="pl-1 py-1" type="number" id="maxRating" name="maxRating" min="0" max="10" placeholder="10" defaultValue={maxRating}/>
                 </div>
+                {/* <p className="text-red-400 pl-8">Please Enter Correct Range</p> */}
+            
               </div>
               {/* Genres list  */}
               <fieldset className="md:col-span-2 text-white border border-rose-300 rounded-md border-opacity-40 p-2">
@@ -114,6 +150,7 @@ const EntertainPage = () => {
                   </li>
                 </ul>
             </fieldset>
+            
             </div>
           <div className="flex justify-between mt-10 md:mx-10 items-center space-x-2">
             <p className="text-white md:text-lg text-md">Get 3 Random Movies Based on your preferences: </p>

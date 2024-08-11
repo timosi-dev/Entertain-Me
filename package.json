@@ -11,17 +11,20 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@types/node": "^20.14.11",
     "dotenv": "^16.4.5",
+    "events": "^3.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.25.1",
     "react-spinners": "^0.14.1",
+    "react-use-window-sessionstorage": "^1.0.11",
     "swiper": "^11.1.8",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/events": "^3.0.3",
+    "@types/node": "^22.2.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.15.0",

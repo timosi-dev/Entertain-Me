@@ -13,7 +13,6 @@ const EntertainListings = () => {
    const maxRating = urlParams.get('maxRating') || '10';
 
 
-
    const genres = [{'action': '28' }, {'adventure': '12'}, {'animation':'16'}, {'comedy' :'35'}, {'crime':'80'}, {'drama':'18'}, {'documentary':'99'}, {'family':'10751'}, {'horror':'27'}, {'fantasy':'14'}, {'scienceFiction':'878'}, {'mystery':'9648'}, {'romance':'10749'}, {'thriller':'53'}, {'western':'37'}];
    
    interface Data {
