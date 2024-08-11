@@ -127,6 +127,9 @@ const EntertainListings = () => {
 
             //creating random movies
             const total_results = data.total_results >= 10000 ? 10000 : data.total_results;
+            if (total_results <= 0) {
+               return;
+            }
             const randomArray = randomNumber(total_results);
             const page = randomArray.map(e => Math.ceil(e/20));
             const IdOnPage = randomArray.map(e => (e%20-1) === -1 ? 19 : (e%20-1));
@@ -156,8 +159,17 @@ const EntertainListings = () => {
          
    },[]);
 
-
-
+   if(results.length === 0 && loading === false){
+      return (
+         <>
+            <div className="flex justify-center m-8">
+               <p id='alert' className='text-red-400 text-lg text-center
+               '>No results found</p>
+            </div>
+           <div className='h-screen'></div>
+         </>
+      )
+   }
 
   return (
     <>
